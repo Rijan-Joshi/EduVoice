@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>Audio to transcript</title>
+    <title>Audio to Transcript</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -14,7 +13,6 @@
     /></noscript>
   </head>
   <body class="is-preload">
-    <!-- Header -->
     <header id="header">
       <a href="index.html" class="title">Hyperspace</a>
       <nav>
@@ -27,62 +25,74 @@
       </nav>
     </header>
 
-    <!-- Wrapper -->
     <div id="wrapper">
-      <!-- Main -->
       <section id="main" class="wrapper">
         <div class="inner">
-          <h1 class="major">Audio to Visual learning</h1>
+          <h1 class="major">Audio to Visual Learning</h1>
           <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-          <textarea id="output" rows="8" cols="80"></textarea> <br />
+          <textarea id="output" rows="8" cols="80" readonly></textarea><br />
           <button id="startRec">Start</button>
           <button id="stopRec">Stop</button>
+          <button id="saveRec">Save</button>
 
           <script type="text/javascript">
             // Access the HTML elements
-            var startRecButton = document.getElementById("startRec");
-            var stopRecButton = document.getElementById("stopRec");
-            var outputElement = document.getElementById("output");
+            const startRecButton = document.getElementById("startRec");
+            const stopRecButton = document.getElementById("stopRec");
+            const saveRecButton = document.getElementById("saveRec");
+            const outputElement = document.getElementById("output");
 
-            // Initialize the speech recognition API
-            var speechRecognition = new webkitSpeechRecognition();
+            // Check for speech recognition support
+            const SpeechRecognition =
+              window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+              alert("Speech recognition is not supported in this browser.");
+            } else {
+              const recognition = new SpeechRecognition();
+              recognition.lang = window.navigator.language;
+              recognition.interimResults = true;
 
-            // Set recognition language and interim results
-            speechRecognition.lang = window.navigator.language;
-            speechRecognition.interimResults = true;
+              // Handle recognition result
+              recognition.addEventListener("result", (event) => {
+                let transcript = "";
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                  transcript += event.results[i][0].transcript;
+                }
+                outputElement.value = transcript;
+              });
 
-            // Start recognition on button click
-            startRecButton.addEventListener("click", () => {
-              speechRecognition.start();
-            });
+              // Handle recognition end
+              recognition.addEventListener("end", () => {
+                console.log("Speech recognition service disconnected");
+              });
 
-            // Stop recognition on button click
-            stopRecButton.addEventListener("click", () => {
-              speechRecognition.stop();
-            });
+              // Handle recognition error
+              recognition.addEventListener("error", (event) => {
+                console.error("Speech recognition error:", event.error);
+              });
 
-            // Handle the recognition result
-            speechRecognition.addEventListener("result", (event) => {
-              const transcript =
-                event.results[event.results.length - 1][0].transcript;
-              outputElement.textContent = transcript;
-            });
+              // Start recognition on button click
+              startRecButton.addEventListener("click", () => {
+                recognition.start();
+              });
+
+              // Stop recognition on button click
+              stopRecButton.addEventListener("click", () => {
+                recognition.stop();
+              });
+
+              // Save the transcribed text
+              saveRecButton.addEventListener("click", () => {
+                const savedTranscript = outputElement.value;
+                console.log("Transcript saved:", savedTranscript);
+                // Implement saving functionality as needed
+              });
+            }
           </script>
         </div>
       </section>
     </div>
 
-    <!-- Footer -->
-    <footer id="footer" class="wrapper alt">
-      <div class="inner">
-        <ul class="menu">
-          <li>&copy; Untitled. All rights reserved.</li>
-          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
-      </div>
-    </footer>
-
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>

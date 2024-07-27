@@ -1,11 +1,5 @@
 @import url(fontawesome-all.min.css);
 
-/*
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -136,7 +130,54 @@ input, select, textarea {
 		}
 
 /* Type */
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vw;
+}
 
+.btn {
+	width: 200px;
+	height: 80px;
+	font-size: 1em;
+	border: none;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 1em 2em;
+	background-color: transparent;
+	cursor: pointer;
+	position: relative;
+	color: #0ebac5;
+}
+
+.btn::before {
+	content: "";
+	display: block;
+	position: absolute;
+	inset: 0;
+	border-top: 2px solid #0ebac5;
+	border-bottom: 2px solid #0ebac5;
+	transition: all 0.5s ease;
+}
+
+.btn::after {
+	content: "";
+	display: block;
+	position: absolute;
+	inset: 0;
+	border-left: 2px solid #0ebac5;
+	border-right: 2px solid #0ebac5;
+	transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+	transform: scale(1.1);
+}
+
+.btn:hover::after {
+	transform: scale(0);
+}
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.55);
 		font-family: Arial, Helvetica, sans-serif;
@@ -3897,10 +3938,11 @@ input, select, textarea {
 
 	#intro {
 		background-attachment: fixed;
-		background-image: url("images/intro.svg");
-		background-position: top right;
+		background-image: url('images/Learning.gif');
+		background-position: center center; /* Center the background image */
 		background-repeat: no-repeat;
-		background-size: 100% 100%;
+		background-size: cover; /* Cover the entire section */
+		background-attachment: scroll; /* Scroll with the page */
 	}
 
 		#intro p {
