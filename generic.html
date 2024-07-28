@@ -1,69 +1,189 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduvoice Slideshow</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css"></noscript>
+    <style>
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            background-color: white;
+            color: black;
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .slide {
+            display: none;
+            text-align: center;
+            height: 300px;
+            flex-direction: column;
+            gap:15px;
+            justify-content: center;
+            align-items: center;
+        }
+        .slide-title {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .slide-content {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active {
+            background-color: #717171;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 0;
+            border-radius: 3px 3px 0 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .bold{
+          color: black;
+        }
+    </style>
+</head>
+<body class="is-preload">
 
-<html>
-  <head>
-    <title>Generic</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript
-      ><link rel="stylesheet" href="assets/css/noscript.css"
-    /></noscript>
-  </head>
-  <body class="is-preload">
     <!-- Header -->
     <header id="header">
-      <a href="index.html" class="title">Hyperspace</a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html" class="active">Generic</a></li>
-          <li><a href="voicetext.html">Voice to Text</a></li>
-          <li><a href="elements.html">Elements</a></li>
-        </ul>
-      </nav>
+        <a href="index.html" class="title">Hyperspace</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="generic.html" class="active">About Us</a></li>
+                <li><a href="voicetext.html">Voice to Text</a></li>
+                <li><a href="elements.html">Elements</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Wrapper -->
     <div id="wrapper">
-      <!-- Main -->
-      <section id="main" class="wrapper">
-        <div class="inner">
-          <h1 class="major">A Generic Page</h1>
-          <span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-          <p>
-            Donec eget ex magna. Interdum et malesuada fames ac ante ipsum
-            primis in faucibus. Pellentesque venenatis dolor imperdiet dolor
-            mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor
-            sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet,
-            fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit.
-            Donec urna ex, lacinia in purus ac, pretium pulvinar mauris.
-            Curabitur sapien risus, commodo eget turpis at, elementum convallis
-            elit. Pellentesque enim turpis, hendrerit tristique.
-          </p>
-          <p>
-            Interdum et malesuada fames ac ante ipsum primis in faucibus.
-            Pellentesque venenatis dolor imperdiet dolor mattis sagittis.
-            Praesent rutrum sem diam, vitae egestas enim auctor sit amet.
-            Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien
-            risus, commodo eget turpis at, elementum convallis elit.
-            Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.
-          </p>
-        </div>
-      </section>
+
+        <!-- Main -->
+        <section id="main" class="wrapper">
+            <div class="inner">
+                <h1 class="major">About the Project</h1>
+                <div class="slideshow-container">
+
+                    <!-- Slide 1 -->
+                    <div class="slide">
+                        <div class="slide-title">Eduvoice</div>
+                        <div class="slide-content">
+                            Revolutionizing Education with Voice-to-Text Technology and AI Chatbots
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <div class="slide-title">What is Eduvoice?</div>
+                        <div class="slide-content">
+                            Brief description of Eduvoice - a project that transforms spoken words into text and features a chatbot for interactive discussions.
+                        </div>
+                    </div>
+                
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <div class="slide-title">Why Eduvoice?</div>
+                        <div class="slide-content">
+                            <ul style="list-style: none;">
+                                <li>To improve accessibility for students with disabilities</li>
+                                <li>To enhance note-taking efficiency</li>
+                                <li>To provide interactive learning experiences</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <!-- Slide 4 -->
+                    <div class="slide">
+                        <div class="slide-title">Technologies and Tools</div>
+                        <div class="slide-content">
+                            <ul style="list-style: none;">
+                                <li><strong class="bold">Voice Recognition:</strong> Speech-to-Text</li>
+                                <li><strong class="bold">Chatbot:</strong> </li>
+                                <li><strong class="bold">Development:</strong> Python, JavaScript</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <!-- Slide 5 -->
+                    <div class="slide">
+                        <div class="slide-title">Key Features</div>
+                        <div class="slide-content">
+                            <ul style="list-style: none;">
+                                <li>Real-time voice-to-text conversion</li>
+                                <li>AI-powered chatbot for discussions</li>
+                                <li>Easy integration with existing educational platforms</li>
+                                <li>Customizable user interface</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <!-- Navigation Buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                
+                <!-- Dots/Indicators -->
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+                
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
     <footer id="footer" class="wrapper alt">
-      <div class="inner">
-        <ul class="menu">
-          <li>&copy; Untitled. All rights reserved.</li>
-          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
-      </div>
+        <div class="inner">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
     </footer>
 
     <!-- Scripts -->
@@ -74,5 +194,51 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-  </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("slide");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "flex";
+                dots[slideIndex-1].className += " active";
+            }
+
+            // Add event listeners to navigation buttons
+            document.querySelector(".prev").addEventListener("click", function() {
+                plusSlides(-1);
+            });
+            document.querySelector(".next").addEventListener("click", function() {
+                plusSlides(1);
+            });
+
+            // Add event listeners to dots
+            let dotElements = document.querySelectorAll(".dot");
+            dotElements.forEach((dot, index) => {
+                dot.addEventListener("click", function() {
+                    currentSlide(index + 1);
+                });
+            });
+        });
+    </script>
+</body>
 </html>
